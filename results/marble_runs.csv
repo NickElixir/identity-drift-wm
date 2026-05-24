@@ -1,0 +1,5 @@
+run_id,input_image,model,marble_world_url,condition,status,notes
+car_01,inputs/dw_ai_2d/car_01.png,marble-1.1,https://marble.worldlabs.ai/world/5519284a-551c-4dbb-a055-c7944c669109,marble_pilot,quick_mixed,front three-quarter SUV; plate blurred; first result recognizable but extra cars and front/body drift visible
+car_02,inputs/dw_ai_2d/car_02.png,marble-1.1,,marble_pilot,pending,clean side hatchback; both wheels visible
+car_03,inputs/dw_ai_2d/car_03.png,marble-1.1,,marble_pilot,pending,clean side wagon; both wheels visible
+car_04,inputs/dw_ai_2d/car_04.png,marble-1.1,,marble_pilot,pending,clean side SUV; both wheels visible
