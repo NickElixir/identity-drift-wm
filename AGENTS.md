@@ -18,6 +18,29 @@ preserves the car identity.
 - Do not overwrite selected input images without updating
   `inputs/dw_ai_2d/selection_manifest.csv`.
 
+## Commit Discipline
+
+- Run `git status --short` before starting work and before every commit.
+- Commit regularly after each meaningful, working step so experiment state is
+  not lost.
+- Prefer small topical commits:
+  - dataset/input selection
+  - prompt or protocol changes
+  - API/tooling changes
+  - run results and QA notes
+  - presentation/report updates
+- Use concise imperative commit messages, for example:
+  - `Add Marble pilot input manifest`
+  - `Document first Marble QA result`
+  - `Add frame extraction script`
+- Do not mix unrelated changes in one commit.
+- Do not commit generated cache files, local API logs, `.env`, credentials, or
+  private scratch files.
+- If a command spends credits or changes external state, commit local setup
+  before running it when practical, then commit results/notes after inspection.
+- Never rewrite or delete previous experiment results unless the user explicitly
+  asks for cleanup. Add corrected notes as a new change instead.
+
 ## Current Marble Baseline
 
 - Model: `marble-1.1`

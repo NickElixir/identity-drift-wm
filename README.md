@@ -86,3 +86,19 @@ Do not rerun `scripts/marble_generate_world.py` to inspect a previous result.
 Use the Marble URL, World Labs Platform trace, or `scripts/marble_poll_operation.py`
 instead. `marble_generate_world.py` creates a new world generation and spends
 credits.
+
+## Commit Practice
+
+Commit regularly so experiment state is not lost. Use small topical commits:
+one for input selection, one for prompt/protocol changes, one for API tooling,
+one for QA notes/results, and so on.
+
+Before every commit:
+
+```bash
+git status --short
+```
+
+Do not commit `.env`, API keys, local operation logs, caches, or private scratch
+files. Prefer concise imperative commit messages such as `Add Marble QA
+protocol` or `Record first Marble pilot result`.
