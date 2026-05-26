@@ -1,0 +1,9 @@
+run_id,frame_index,label,timestamp_sec,video_frame,frame_path
+car_01,1,front_or_input_like,5.076,302,results/extracted_frames/car_01/car_01_01_front_or_input_like.jpg
+car_01,2,front_left,18.128,1080,results/extracted_frames/car_01/car_01_02_front_left.jpg
+car_01,3,left,31.180,1858,results/extracted_frames/car_01/car_01_03_left.jpg
+car_01,4,rear_left,44.232,2636,results/extracted_frames/car_01/car_01_04_rear_left.jpg
+car_01,5,rear,57.284,3414,results/extracted_frames/car_01/car_01_05_rear.jpg
+car_01,6,rear_right,70.337,4192,results/extracted_frames/car_01/car_01_06_rear_right.jpg
+car_01,7,right,83.389,4970,results/extracted_frames/car_01/car_01_07_right.jpg
+car_01,8,front_right,96.441,5747,results/extracted_frames/car_01/car_01_08_front_right.jpg

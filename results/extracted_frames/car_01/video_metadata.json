@@ -1,0 +1,13 @@
+{
+  "video": "/Users/nikolai/Documents/Skoltech/VR&AR&Haptics/haval_f7_1.mov",
+  "run_id": "car_01",
+  "fps": 59.59612543096372,
+  "frame_count": 6050,
+  "duration_sec": 101.51666666666667,
+  "width": 2560,
+  "height": 1600,
+  "start_fraction": 0.05,
+  "end_fraction": 0.95,
+  "count": 8,
+  "manifest": "results/extracted_frames/car_01/frames_manifest.csv"
+}
