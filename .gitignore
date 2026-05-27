@@ -83,6 +83,7 @@ results/marble_api_runs.jsonl
 
 # Local VLM request batches with base64-encoded images
 results/vlm_batches/*.jsonl
+results/vlm_selection/
 
 # Local paid image-edit outputs and request payloads
 results/fal_edits/
