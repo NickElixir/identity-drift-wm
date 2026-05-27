@@ -137,11 +137,18 @@ modern research-campus atmosphere and consistent overcast daylight.
 
 Adapt the courtyard into a robotics demonstration plaza. Add a few realistic
 Skolkovo-style exhibits without crowding the space: a large fragmented stone-like
-face sculpture, a minimal black square/cube public-art landmark, a compact
-autonomous mobility display car, and a small micromobility/bicycle exhibit.
-Leave clear flight corridors around columns, lawns, and exhibits for a small
-HoverAI guide drone with an onboard screen and projector. No people, no animals,
-no festive decorations, no snow, no extra cars blocking the main route.
+face sculpture with vertical ribs, a minimal black square/cube public-art
+landmark, a yellow autonomous taxi-style demo car, and a small micromobility or
+bicycle exhibit near the side.
+
+Place the fragmented face sculpture on the lawn side near the open plaza,
+visible from the main cobblestone path. Place the yellow demo car on the paved
+open area near the white ribbed facade, leaving a wide clear corridor around it.
+Put the small micromobility exhibit near the path edge, secondary to the
+sculpture and car. Keep the central cobblestone route open for a HoverAI drone
+flight path from the glass entrance under the columns, around the sculpture,
+past the car, and toward the underpass. No people, no animals, no festive
+decorations, no snow, no extra cars blocking the main route.
 
 ## Approval Questions
 
