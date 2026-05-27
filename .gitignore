@@ -87,6 +87,9 @@ results/vlm_batches/*.jsonl
 # Local paid image-edit outputs and request payloads
 results/fal_edits/
 
+# Local prepared Marble input image sets
+results/marble_inputs/
+
 # Local private datasets
 VR Dataset/
 .DS_Store
