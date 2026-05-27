@@ -3,3 +3,4 @@ car_01,inputs/dw_ai_2d/car_01.png,marble-1.1,https://marble.worldlabs.ai/world/5
 car_02,inputs/dw_ai_2d/car_02.png,marble-1.1,,marble_pilot,pending,clean side hatchback; both wheels visible
 car_03,inputs/dw_ai_2d/car_03.png,marble-1.1,,marble_pilot,pending,clean side wagon; both wheels visible
 car_04,inputs/dw_ai_2d/car_04.png,marble-1.1,,marble_pilot,pending,clean side SUV; both wheels visible
+skoltech_hoverai_demo_plaza,results/marble_inputs/skoltech_hoverai_reve_anchor_4x3.png + 5 VR Dataset photos,marble-1.1,https://marble.worldlabs.ai/world/4b3aac0a-422b-4306-9c4b-73d47e0e170c,hoverai_demo,quick_mixed,"API generation succeeded; CDN thumbnail/panorama show coherent Skoltech-like courtyard, open cobblestone route, columns, white ribbed facades, face sculpture, yellow demo car; interactive Marble walkthrough not verified because Browser iab was unavailable"
