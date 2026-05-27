@@ -84,6 +84,9 @@ results/marble_api_runs.jsonl
 # Local VLM request batches with base64-encoded images
 results/vlm_batches/*.jsonl
 
+# Local paid image-edit outputs and request payloads
+results/fal_edits/
+
 # Local private datasets
 VR Dataset/
 .DS_Store

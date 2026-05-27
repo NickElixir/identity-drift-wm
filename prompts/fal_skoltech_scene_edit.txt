@@ -1,0 +1,5 @@
+Use the first image as the base Skoltech courtyard photo. Preserve its exact architecture, camera perspective, cobblestone ground, glass facade, concrete columns, white ribbed buildings, lawn, shrubs, and overcast daylight.
+
+Use the other input images only as visual references for the added objects. Add a large fragmented face sculpture with vertical ribs, matching the Skolkovo public-art reference, on the lawn side near the open plaza. Add one yellow autonomous taxi-style demo car on the paved open area near the white ribbed facade. Keep both objects realistic, correctly scaled, grounded, and naturally lit.
+
+Leave a clear central cobblestone corridor for a HoverAI drone flight route from the glass entrance under the columns, around the sculpture, past the car, and toward the underpass. Do not add people, bicycles, extra cars, text signs, snow, festive decorations, or change the building geometry.
