@@ -58,6 +58,41 @@ def download(url: str, out: Path) -> None:
         out.write_bytes(response.read())
 
 
+def build_input_payload(args: argparse.Namespace, prompt: str, image_urls: list[str]) -> dict:
+    if "nano-banana" in args.model:
+        input_payload = {
+            "prompt": prompt,
+            "num_images": args.num_images,
+            "aspect_ratio": "auto",
+            "output_format": "png",
+            "safety_tolerance": "4",
+            "limit_generations": True,
+            "image_urls": image_urls,
+        }
+    elif "reve" in args.model and "remix" in args.model:
+        input_payload = {
+            "prompt": prompt,
+            "image_urls": image_urls,
+            "aspect_ratio": "4:3",
+            "num_images": args.num_images,
+            "output_format": "png",
+        }
+    else:
+        input_payload = {
+            "prompt": prompt,
+            "image_size": args.image_size,
+            "num_images": args.num_images,
+            "max_images": args.max_images,
+            "enable_safety_checker": True,
+            "enhance_prompt_mode": "standard",
+            "image_urls": image_urls,
+        }
+
+    if args.seed is not None:
+        input_payload["seed"] = args.seed
+    return input_payload
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("images", nargs="+", type=Path)
@@ -89,17 +124,11 @@ def main() -> int:
         return 2
 
     prompt = args.prompt_file.expanduser().read_text(encoding="utf-8").strip()
-    input_payload = {
-        "prompt": prompt,
-        "image_size": args.image_size,
-        "num_images": args.num_images,
-        "max_images": args.max_images,
-        "enable_safety_checker": True,
-        "enhance_prompt_mode": "standard",
-        "image_urls": ["<data-url-redacted>" for _ in image_paths],
-    }
-    if args.seed is not None:
-        input_payload["seed"] = args.seed
+    input_payload = build_input_payload(
+        args,
+        prompt,
+        ["<data-url-redacted>" for _ in image_paths],
+    )
 
     if args.dry_run:
         print(
@@ -115,19 +144,14 @@ def main() -> int:
         )
         return 0
 
-    input_payload["image_urls"] = [data_url(path) for path in image_paths]
-    submit = request_json(
-        "POST",
-        f"{FAL_QUEUE_BASE}/{args.model}",
-        fal_key,
-        {"input": input_payload},
-    )
+    input_payload = build_input_payload(args, prompt, [data_url(path) for path in image_paths])
+    submit = request_json("POST", f"{FAL_QUEUE_BASE}/{args.model}", fal_key, input_payload)
     request_id = submit["request_id"]
+    status_url = submit["status_url"]
+    response_url = submit["response_url"]
     print(f"{request_id}: submitted", flush=True)
 
     deadline = time.time() + args.timeout_minutes * 60
-    status_url = f"{FAL_QUEUE_BASE}/{args.model}/requests/{request_id}/status"
-    result_url = f"{FAL_QUEUE_BASE}/{args.model}/requests/{request_id}"
     while time.time() < deadline:
         status = request_json("GET", status_url, fal_key)
         state = status.get("status")
@@ -141,7 +165,7 @@ def main() -> int:
     else:
         raise TimeoutError(f"fal request timed out: {request_id}")
 
-    result = request_json("GET", result_url, fal_key)
+    result = request_json("GET", response_url, fal_key)
     args.out_dir.mkdir(parents=True, exist_ok=True)
     (args.out_dir / f"{request_id}.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2),

@@ -1,0 +1,5 @@
+Use the first image as the base scene and keep it recognizable as the same photo. Preserve the original camera angle, curved wood facade, concrete columns, dark glass facade, white ribbed campus building, cobblestone paving, lawn, shrubs, lighting, and sky. Do not redesign the architecture, do not replace the glass facade with a new wall, and do not add new entrances or buildings.
+
+Use the other input images only as references for two added objects. Add one fragmented vertical-rib face sculpture on the lawn side, medium size, set back from the camera, grounded on the grass, not blocking the path. Add one yellow autonomous taxi-style demo car on the paved open area near the white ribbed facade, smaller than the columns, parked naturally and not blocking the central path.
+
+Keep a clear cobblestone flight corridor through the middle for a HoverAI drone route. The final image should look like a lightly edited real courtyard photograph, not a redesigned rendering. No people, no bicycles, no extra cars, no text signs, no snow, no festive decorations.
