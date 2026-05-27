@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a Marble world from one local image via the World Labs API."""
+"""Generate a Marble world from local image input via the World Labs API."""
 
 from __future__ import annotations
 
@@ -111,35 +111,24 @@ def append_jsonl(path: Path, record: dict) -> None:
         handle.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("image", type=Path)
-    parser.add_argument("--display-name", required=True)
-    prompt_group = parser.add_mutually_exclusive_group(required=True)
-    prompt_group.add_argument("--prompt")
-    prompt_group.add_argument("--prompt-file", type=Path)
-    parser.add_argument("--model", default="marble-1.1")
-    parser.add_argument("--out", type=Path, default=Path("results/marble_api_runs.jsonl"))
-    parser.add_argument("--poll-seconds", type=int, default=30)
-    parser.add_argument("--timeout-minutes", type=int, default=45)
-    args = parser.parse_args()
+def parse_azimuths(raw: str | None, count: int) -> list[int | None]:
+    if not raw:
+        return [None] * count
 
-    load_dotenv(Path(".env"))
-    api_key = os.environ.get("WORLDLABS_API_KEY")
-    if not api_key:
-        print("Set WORLDLABS_API_KEY before running this script.", file=sys.stderr)
-        return 2
+    values = [value.strip() for value in raw.split(",") if value.strip()]
+    if len(values) != count:
+        raise ValueError(f"Expected {count} azimuths, got {len(values)}")
+    return [int(value) for value in values]
 
-    image_path = args.image.expanduser().resolve()
-    if not image_path.exists():
-        print(f"Image not found: {image_path}", file=sys.stderr)
-        return 2
 
-    if args.prompt_file:
-        prompt = args.prompt_file.expanduser().read_text(encoding="utf-8").strip()
-    else:
-        prompt = args.prompt
+def media_content(media_asset_id: str) -> dict:
+    return {
+        "source": "media_asset",
+        "media_asset_id": media_asset_id,
+    }
 
+
+def upload_media_asset(image_path: Path, api_key: str) -> str:
     extension = image_path.suffix.lower().lstrip(".")
     if extension == "jpeg":
         extension = "jpg"
@@ -161,19 +150,144 @@ def main() -> int:
         upload_info.get("required_headers", {}),
         image_path,
     )
+    return media_asset_id_from_response(prepared)
 
-    media_asset_id = media_asset_id_from_response(prepared)
+
+def build_world_prompt(
+    media_asset_ids: list[str],
+    prompt: str,
+    azimuths: list[int | None],
+    reconstruct_images: bool,
+    disable_recaption: bool,
+) -> dict:
+    if len(media_asset_ids) == 1:
+        world_prompt = {
+            "type": "image",
+            "image_prompt": {
+                **media_content(media_asset_ids[0]),
+            },
+            "text_prompt": prompt,
+        }
+        if disable_recaption:
+            world_prompt["disable_recaption"] = True
+        return world_prompt
+
+    multi_image_prompt = []
+    for media_asset_id, azimuth in zip(media_asset_ids, azimuths):
+        item = {
+            "content": media_content(media_asset_id),
+        }
+        if azimuth is not None:
+            item["azimuth"] = azimuth
+        multi_image_prompt.append(item)
+
+    world_prompt = {
+        "type": "multi-image",
+        "multi_image_prompt": multi_image_prompt,
+        "reconstruct_images": reconstruct_images,
+        "text_prompt": prompt,
+    }
+    if disable_recaption:
+        world_prompt["disable_recaption"] = True
+    return world_prompt
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("images", nargs="+", type=Path)
+    parser.add_argument("--display-name", required=True)
+    prompt_group = parser.add_mutually_exclusive_group(required=True)
+    prompt_group.add_argument("--prompt")
+    prompt_group.add_argument("--prompt-file", type=Path)
+    parser.add_argument(
+        "--azimuths",
+        help="Comma-separated azimuths in degrees for multi-image input.",
+    )
+    parser.add_argument(
+        "--reconstruct-images",
+        action="store_true",
+        help="Use Marble reconstruction mode for multi-image input; required for 5-8 images.",
+    )
+    parser.add_argument(
+        "--disable-recaption",
+        action="store_true",
+        help="Ask Marble to use the provided text prompt as-is.",
+    )
+    parser.add_argument("--model", default="marble-1.1")
+    parser.add_argument("--out", type=Path, default=Path("results/marble_api_runs.jsonl"))
+    parser.add_argument("--poll-seconds", type=int, default=30)
+    parser.add_argument("--timeout-minutes", type=int, default=45)
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Validate inputs and print the request shape without uploading or generating.",
+    )
+    args = parser.parse_args()
+
+    load_dotenv(Path(".env"))
+    api_key = os.environ.get("WORLDLABS_API_KEY")
+    if not api_key and not args.dry_run:
+        print("Set WORLDLABS_API_KEY before running this script.", file=sys.stderr)
+        return 2
+
+    image_paths = [image.expanduser().resolve() for image in args.images]
+    for image_path in image_paths:
+        if not image_path.exists():
+            print(f"Image not found: {image_path}", file=sys.stderr)
+            return 2
+
+    if len(image_paths) > 8:
+        print("Marble multi-image input supports up to 8 images.", file=sys.stderr)
+        return 2
+
+    try:
+        azimuths = parse_azimuths(args.azimuths, len(image_paths))
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
+    reconstruct_images = args.reconstruct_images or len(image_paths) > 4
+
+    if args.prompt_file:
+        prompt = args.prompt_file.expanduser().read_text(encoding="utf-8").strip()
+    else:
+        prompt = args.prompt
+
+    if args.dry_run:
+        placeholder_ids = [f"<media_asset_id_{index + 1}>" for index in range(len(image_paths))]
+        print(
+            json.dumps(
+                {
+                    "display_name": args.display_name,
+                    "model": args.model,
+                    "input_images": [str(path) for path in image_paths],
+                    "world_prompt": build_world_prompt(
+                        placeholder_ids,
+                        prompt,
+                        azimuths,
+                        reconstruct_images,
+                        args.disable_recaption,
+                    ),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
+
+    media_asset_ids = []
+    for image_path in image_paths:
+        media_asset_ids.append(upload_media_asset(image_path, api_key))
+
     generation_payload = {
         "display_name": args.display_name,
         "model": args.model,
-        "world_prompt": {
-            "type": "image",
-            "image_prompt": {
-                "source": "media_asset",
-                "media_asset_id": media_asset_id,
-            },
-            "text_prompt": prompt,
-        },
+        "world_prompt": build_world_prompt(
+            media_asset_ids,
+            prompt,
+            azimuths,
+            reconstruct_images,
+            args.disable_recaption,
+        ),
     }
     operation = request_json(
         "POST",
@@ -187,7 +301,7 @@ def main() -> int:
         args.out,
         {
             "event": "operation_started",
-            "input_image": str(image_path),
+            "input_images": [str(path) for path in image_paths],
             "display_name": args.display_name,
             "operation_id": operation_id,
             "operation": operation,
@@ -212,7 +326,7 @@ def main() -> int:
         args.out,
         {
             "event": "operation_finished",
-            "input_image": str(image_path),
+            "input_images": [str(path) for path in image_paths],
             "display_name": args.display_name,
             "operation_id": operation_id,
             "operation": operation,
