@@ -1,0 +1,5 @@
+run_id,frame_index,label,timestamp_sec,video_frame,frame_path
+car_01_trimmed_preview,1,frame_01,3.750,224,analysis/trim_preview/car_01_trimmed_preview/car_01_trimmed_preview_01_frame_01.jpg
+car_01_trimmed_preview,2,frame_02,27.002,1609,analysis/trim_preview/car_01_trimmed_preview/car_01_trimmed_preview_02_frame_02.jpg
+car_01_trimmed_preview,3,frame_03,50.253,2995,analysis/trim_preview/car_01_trimmed_preview/car_01_trimmed_preview_03_frame_03.jpg
+car_01_trimmed_preview,4,frame_04,73.505,4381,analysis/trim_preview/car_01_trimmed_preview/car_01_trimmed_preview_04_frame_04.jpg

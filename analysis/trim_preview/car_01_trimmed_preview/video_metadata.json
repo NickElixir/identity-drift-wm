@@ -1,0 +1,13 @@
+{
+  "video": "/Users/nikolai/Documents/GitHub/identity-drift-wm/recordings/car_01_marble_walkthrough_trimmed.mp4",
+  "run_id": "car_01_trimmed_preview",
+  "fps": 59.596,
+  "frame_count": 4470,
+  "duration_sec": 75.00503389489228,
+  "width": 2560,
+  "height": 1600,
+  "start_fraction": 0.05,
+  "end_fraction": 0.98,
+  "count": 4,
+  "manifest": "analysis/trim_preview/car_01_trimmed_preview/frames_manifest.csv"
+}
