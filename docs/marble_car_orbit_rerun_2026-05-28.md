@@ -28,6 +28,18 @@ Image properties:
 This image is intended as the second input after the existing Reve anchor, so
 Marble sees both a front/three-quarter view and a rear/side view of the same car.
 
+Generated one additional Reve remix reference for the sculpture side profile and
+car orbit composition:
+
+```text
+results/marble_inputs/skoltech_hoverai_reve_side_face_car_reference.png
+```
+
+This replaces the weaker shaded scene-only photo
+`VR Dataset/IMG_20260527_154615.jpg` in the next Marble dry run. It preserves
+the liked side-face composition while cleaning up the car and leaving clearer
+walkable pavement around it.
+
 ## Prompt
 
 Use:
@@ -52,12 +64,12 @@ Run only after confirming Marble credit spend:
 python3 scripts/marble_generate_world.py \
   "results/marble_inputs/skoltech_hoverai_reve_anchor_4x3.png" \
   "results/marble_inputs/skoltech_hoverai_car_rear_right_reference.png" \
+  "results/marble_inputs/skoltech_hoverai_reve_side_face_car_reference.png" \
   "VR Dataset/IMG_20260527_154723.jpg" \
   "VR Dataset/IMG_20260527_154804.jpg" \
   "VR Dataset/IMG_20260527_154855.jpg" \
   "VR Dataset/IMG_20260527_154948.jpg" \
-  "VR Dataset/IMG_20260527_154615.jpg" \
-  --display-name "Skoltech HoverAI demo plaza car orbit" \
+  --display-name "Skoltech HoverAI demo plaza car orbit Reve side face" \
   --model marble-1.1 \
   --prompt-file prompts/marble_skoltech_hoverai_scene_car_orbit.txt \
   --disable-recaption

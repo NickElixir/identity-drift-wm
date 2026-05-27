@@ -1,0 +1,22 @@
+Use the first input image as the target composition. Preserve the same camera
+angle, side-profile fragmented face sculpture on the left lawn edge, yellow
+taxi-style demo car on the right paved area, white ribbed facade, curved
+wood-clad overhang, concrete columns, cobblestone path, green lawn, shrubs, and
+overcast campus daylight.
+
+Regenerate the image as a clean photorealistic Skoltech courtyard reference for
+Marble world generation. The face sculpture should stay large, close, and in
+clear side profile, with vertical ribbed layered material and a stable grounded
+base. The yellow demo car should stay as one complete consistent vehicle, with
+clean side and rear-side geometry, four plausible wheel positions, intact
+roofline, windows, rear hatch, and readable car depth. Keep clear walkable
+cobblestone space around the car so it can be orbited in the generated world.
+
+Use the second input image only as an additional vehicle geometry reference for
+the rear-right side of the car. Do not change the scene into the second image's
+camera angle.
+
+Keep the scene realistic and useful for 3D reconstruction. Do not add people,
+animals, bicycles, extra cars, readable license plate text, festive decorations,
+snow, distorted wheels, smeared body panels, merged glass reflections, or
+floating objects.
