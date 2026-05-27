@@ -84,6 +84,11 @@ results/marble_api_runs.jsonl
 # Local VLM request batches with base64-encoded images
 results/vlm_batches/*.jsonl
 
+# Local private datasets
+VR Dataset/
+.DS_Store
+analysis/contact_sheets/vr_dataset/
+
 # IPython
 profile_default/
 ipython_config.py
