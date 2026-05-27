@@ -1,0 +1,29 @@
+Create a realistic navigable outdoor courtyard at Skoltech in Skolkovo. Use the
+uploaded photos as the main geometry: grey cobblestone paving, curved wood-clad
+building edge on concrete columns, dark glass entrance facade, white ribbed
+campus buildings, broad open paths, green lawn, evergreen landscaping, low
+shrubs, and an underpass-like passage between buildings. Preserve the clean
+modern research-campus atmosphere and consistent overcast daylight.
+
+Adapt the courtyard into a robotics demonstration plaza. Add a few realistic
+Skolkovo-style exhibits without crowding the space: one large fragmented
+stone-like face sculpture with vertical ribs, one minimal black square/cube
+public-art landmark, and one yellow autonomous taxi-style demo car.
+
+The yellow demo car is the most important object. Reconstruct it as a complete
+3D car that can be approached and walked around from all sides. Use the uploaded
+front three-quarter and rear/side car reference views together: keep one
+consistent yellow taxi-like vehicle with four wheels, intact roofline, windows,
+front, rear, left side, and right side. Do not smear the car into the pavement or
+building, do not merge it with glass reflections, and do not create extra cars.
+
+Place the car on the paved open area near the white ribbed facade, leaving at
+least a full walking corridor around every side for an orbit path. Keep the car
+away from walls, bushes, sculpture panels, and columns. Place the fragmented
+face sculpture on the lawn side near the open plaza, visible from the main
+cobblestone path, but secondary to the navigable car orbit.
+
+Keep the central cobblestone route open for a HoverAI drone flight path from the
+glass entrance under the columns, around the sculpture, around the car, and
+toward the underpass. No people, no animals, no bicycles, no festive
+decorations, no snow, no extra cars blocking the main route.
