@@ -1,0 +1,20 @@
+Use the first input image only as the Skoltech courtyard base scene. Preserve
+the camera angle, lawn edge, curved wood facade, white ribbed building, glass
+ground floor, cobblestone path, overcast daylight, and open walkable route.
+
+Create a clean photorealistic rear-view scene reference of the Anton Smit
+fragmented face sculpture. The sculpture should be viewed mostly from behind
+and slightly from one rear corner. Use the Anton references to build one
+complete freestanding object: a flat row of grey vertical support ribs on the
+back, visible rib spacing, stable ground contact, real side thickness, and only
+a small amount of colorful layered face material wrapping around the far edge.
+
+Important: the back must be straight, complete, and readable as a finished
+rear/rib structure. Do not make giant smooth blank blobs, melted panels, warped
+columns, duplicate rib sets, or a face floating beside the ribs. Do not crop the
+sculpture; leave grass clearance and a walkable cobblestone orbit path around
+it.
+
+No people, animals, bicycles, cars, readable text, festive decorations, snow,
+floating pieces, or objects merged into grass, pavement, bushes, glass, columns,
+or building facades.
