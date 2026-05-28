@@ -1,0 +1,18 @@
+Use the first input image as the base Skoltech courtyard scene. Preserve its
+camera angle, cobblestone route, lawn edge, white ribbed facade, curved wood
+facade, concrete columns, shrubs, and overcast daylight.
+
+Create a photorealistic rear/rib-side reference for Marble world generation.
+Place one Anton Smit fragmented face sculpture on the lawn side with its back
+and grey vertical support ribs clearly visible. Use the Anton reference images
+together: the object must be freestanding, thick, grounded, and complete from
+the rear, with partial colorful layered face material visible around one side.
+It must not look like a flat printed panel or a hollow one-sided facade.
+
+Keep enough open cobblestone and grass clearance for a walkable orbit around the
+sculpture. The white self-driving car and mirrored frame sculpture may appear
+small and coherent in the far background only if they do not block the route.
+
+Do not add people, animals, bicycles, extra cars, readable text, festive
+decorations, snow, floating pieces, or objects merged into grass, pavement,
+bushes, glass, or building facades.

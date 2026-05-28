@@ -1,0 +1,20 @@
+Use the first input image as the base Skoltech courtyard scene. Preserve its
+camera angle, cobblestone paving, white ribbed facade, pass-through direction,
+lawn edge, shrubs, and overcast daylight.
+
+Create a photorealistic car-focused reference for Marble world generation. Place
+one white self-driving Kia Soul-style research car on the open cobblestone paved
+area, with at least a full walking corridor around every side. Use the car
+reference images together to reconstruct one consistent complete vehicle: boxy
+compact body, roof sensor bar, front grille, headlights, rear hatch, vertical
+taillights, side windows, wheels, and black doodle-style graphics on white body
+panels.
+
+Keep the car outdoors and naturally lit. Remove people, indoor workshop context,
+readable license plate text, and readable brand/store text. Do not duplicate the
+car. Do not smear the car into pavement or glass. Do not crop it. Leave the
+central route navigable.
+
+The Anton Smit face sculpture and mirrored frame sculpture may appear small in
+the background only if they do not distract from the car and do not block the
+route. No people, animals, bicycles, extra cars, festive decorations, or snow.

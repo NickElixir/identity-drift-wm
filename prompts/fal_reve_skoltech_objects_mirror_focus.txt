@@ -1,0 +1,20 @@
+Use the first input image as the base Skoltech courtyard scene. Preserve its
+camera angle, cobblestone path, lawn, white ribbed facades, curved wood facade,
+concrete columns, glass entrance edge, shrubs, and overcast daylight.
+
+Create a photorealistic mirrored-frame-focused reference for Marble world
+generation. Place one Skolkovo mirrored metal frame sculpture on the lawn side
+or the paved edge where it can be walked around. Use the mirror-frame reference
+images together: several tall rectangular reflective stainless-steel uprights,
+top rectangular crossbars, open interior spaces, stable bases, and clear
+freestanding geometry visible from front and side. Keep the reflections subtle
+and physically plausible, not noisy or melted.
+
+Keep clear cobblestone walking space around the frame sculpture and preserve the
+central route. The white self-driving car and Anton Smit face sculpture may
+appear farther away as secondary context only if they remain coherent and do not
+block the route.
+
+Do not add people, animals, bicycles, extra cars, readable text, festive
+decorations, snow, floating pieces, or objects merged into glass, grass,
+pavement, or building facades.

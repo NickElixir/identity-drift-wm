@@ -1,0 +1,33 @@
+Create a realistic navigable outdoor courtyard at Skoltech in Skolkovo. Use the
+uploaded photos as the main geometry: grey cobblestone paving, curved wood-clad
+building edge on concrete columns, dark glass entrance facade, white ribbed
+campus buildings, broad open paths, green lawn, evergreen landscaping, low
+shrubs, and an underpass-like passage between buildings. Preserve consistent
+overcast daylight and the clean modern research-campus atmosphere.
+
+Adapt the courtyard into a robotics and public-art demonstration plaza with
+three coherent exhibit objects:
+
+1. One white self-driving Kia Soul-style research car with black hand-drawn
+   graphics, roof sensor bar, compact boxy body, intact windows, front grille,
+   rear hatch, vertical taillights, and four wheels. Reconstruct it as one
+   complete 3D vehicle that can be approached from every side. Do not duplicate
+   the car, do not change it into a yellow taxi, and do not smear it into the
+   pavement or glass.
+2. One Anton Smit fragmented face sculpture on grey vertical support ribs. It
+   must have a recognizable layered face, real side thickness, complete rear rib
+   structure, and stable freestanding supports. It must not become a flat
+   printed sign, a fence, or a hollow one-sided panel.
+3. One mirrored stainless-steel rectangular frame sculpture with several tall
+   reflective uprights, top rectangular crossbars, open interior spaces, and
+   stable bases. Keep reflections subtle and physically plausible.
+
+Place the car on open cobblestone paving with a full walking corridor around all
+sides. Place the Anton sculpture and mirrored frame sculpture along the lawn
+edge, separated from each other and from the car, with enough clearance for a
+controlled orbit path. Keep the central cobblestone route open for a HoverAI
+drone path through the courtyard.
+
+No people, animals, bicycles, extra cars, readable license plates, readable
+advertising text, festive decorations, snow, floating pieces, or objects merged
+into grass, bushes, pavement, glass, columns, or building facades.

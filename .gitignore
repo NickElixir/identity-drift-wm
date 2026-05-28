@@ -87,6 +87,7 @@ results/vlm_selection/
 
 # Local paid image-edit outputs and request payloads
 results/fal_edits/
+results/fal_reference_inputs/
 
 # Local prepared Marble input image sets
 results/marble_inputs/
@@ -95,6 +96,9 @@ results/marble_inputs/
 VR Dataset/
 .DS_Store
 analysis/contact_sheets/vr_dataset/
+analysis/contact_sheets/*_new_refs.jpg
+analysis/contact_sheets/skoltech_objects_v3*.jpg
+analysis/contact_sheets/vr_dataset_root_page_*.jpg
 
 # IPython
 profile_default/

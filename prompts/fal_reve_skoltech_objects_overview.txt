@@ -1,0 +1,24 @@
+Use the first input image as the base Skoltech courtyard scene. Preserve its
+camera angle, cobblestone paths, lawn, white ribbed facades, curved wood-clad
+overhang, concrete columns, glass facade, shrubs, and overcast daylight.
+
+Create a clean photorealistic wide establishing reference for Marble world
+generation. Place three exhibit objects in the courtyard with clear walkable
+space around each one:
+
+1. One white self-driving Kia Soul-style research car with black doodle graphics,
+   roof sensor bar, compact boxy body, and four visible wheel positions. Use the
+   car reference images only for vehicle geometry and pattern style. Remove
+   people, indoor workshop context, readable license plate text, and readable
+   brand/store text.
+2. One Anton Smit fragmented face sculpture on a grey vertical-rib support,
+   placed on the lawn side. It should have a complete front, side thickness, and
+   visible back/rib structure, not just a flat billboard.
+3. One mirrored metal frame sculpture with several rectangular reflective
+   stainless-steel uprights and top crossbars, placed farther along the lawn
+   edge. Make it solid, freestanding, grounded, and walkable around.
+
+Keep the central cobblestone route open for a HoverAI drone path. Do not add
+people, animals, bicycles, extra cars, text signs, festive decorations, snow, or
+floating/merged objects. Avoid smearing objects into glass, pavement, bushes, or
+building facades.
