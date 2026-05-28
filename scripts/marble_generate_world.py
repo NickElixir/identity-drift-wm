@@ -7,6 +7,7 @@ import argparse
 import json
 import mimetypes
 import os
+import socket
 import sys
 import time
 import urllib.error
@@ -50,19 +51,31 @@ def upload_file(upload_url: str, required_headers: dict, image_path: Path) -> No
     content_type = mimetypes.guess_type(image_path.name)[0] or "application/octet-stream"
     headers = dict(required_headers or {})
     headers.setdefault("Content-Type", content_type)
-    request = urllib.request.Request(
-        upload_url,
-        data=image_path.read_bytes(),
-        headers=headers,
-        method="PUT",
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=300) as response:
-            if response.status >= 300:
-                raise RuntimeError(f"Upload failed: HTTP {response.status}")
-    except urllib.error.HTTPError as exc:
-        details = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"Upload failed: HTTP {exc.code}\n{details}") from exc
+    payload = image_path.read_bytes()
+    last_error: Exception | None = None
+
+    for attempt in range(1, 4):
+        request = urllib.request.Request(
+            upload_url,
+            data=payload,
+            headers=headers,
+            method="PUT",
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=300) as response:
+                if response.status >= 300:
+                    raise RuntimeError(f"Upload failed: HTTP {response.status}")
+                return
+        except urllib.error.HTTPError as exc:
+            details = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"Upload failed: HTTP {exc.code}\n{details}") from exc
+        except (BrokenPipeError, TimeoutError, socket.timeout, urllib.error.URLError) as exc:
+            last_error = exc
+            if attempt == 3:
+                break
+            time.sleep(2**attempt)
+
+    raise RuntimeError(f"Upload failed after retries: {image_path}") from last_error
 
 
 def media_asset_id_from_response(prepared: dict) -> str:
