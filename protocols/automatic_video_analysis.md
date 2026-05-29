@@ -37,7 +37,7 @@ Create a VLM review batch:
 
 ```bash
 python3 scripts/make_vlm_review_batch.py \
-  --reference inputs/dw_ai_2d/car_01.png \
+  --reference inputs/car_2d/car_01.png \
   --manifest results/extracted_frames/car_01/frames_manifest.csv \
   --out results/vlm_batches/car_01_review.jsonl
 ```

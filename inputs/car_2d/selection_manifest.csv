@@ -1,0 +1,5 @@
+run_id,selected_file,source_file,source_group,why_selected,notes
+car_01,inputs/car_2d/car_01.png,private_source_removed,private car image set,front three-quarter view with clear body and wheel identity,front plate blurred in selected copy
+car_02,inputs/car_2d/car_02.png,private_source_removed,private car image set,side view with both wheels visible and useful dirt/body identity cues,
+car_03,inputs/car_2d/car_03.png,private_source_removed,private car image set,side view with distinct wagon silhouette and black wheels,
+car_04,inputs/car_2d/car_04.png,private_source_removed,private car image set,large SUV side view with strong wheel visibility,

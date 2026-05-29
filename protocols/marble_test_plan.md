@@ -2,14 +2,15 @@
 
 ## Goal
 Test whether World Labs Marble preserves the visual identity of a car when a
-DW AI 2D composite is converted into a navigable 3D car visualization world.
+selected 2D car reference image is converted into a navigable 3D car
+visualization world.
 
 ## Current plan
-1. Select 4 pilot DW AI images for the free Marble tier.
+1. Select 4 pilot car reference images for the free Marble tier.
 2. Generate one Marble world per image using single-image input.
 3. Record a controlled orbit path around the car, not a generic room tour.
 4. Extract 8 frames per walkthrough at repeatable orbit positions.
-5. Score identity drift against the original/DW AI input image.
+5. Score identity drift against the input car reference image.
 6. Decide whether to upgrade to Standard for the full 10-world experiment,
    multi-image tests, and export options.
 
@@ -40,7 +41,7 @@ panorama is strong, but extra cars and local front/body drift are visible.
 
 ## Environment strategy
 - Use a fixed simple outdoor setting for all pilot worlds. This keeps the test
-  closer to outdoor DW AI reference photos while preserving experimental
+  closer to outdoor car reference photos while preserving experimental
   consistency across cars.
 - Do not ask Marble to reconstruct the exact street/background from each input
   photo in the main experiment. That is a harder task and would mix car identity
@@ -49,15 +50,15 @@ panorama is strong, but extra cars and local front/body drift are visible.
   walk through the generated world if it looks visually compelling.
 
 ## Input image strategy
-- Primary research condition: single DW AI output image per car. This is the
+- Primary research condition: single selected 2D reference image per car. This is the
   cleanest test of identity drift because Marble must infer unseen sides of the
-  car from the same consumer image that the real product produces.
+  car from one image.
 - Optional stronger visualization condition: multiple images of the same car
   from front, left, right, and back, only if all images show the same target
   wheel design and consistent lighting. This is better for making a stable
   showroom, but it changes the experiment because Marble receives more identity
   evidence.
-- Do not mix real original photos with DW AI wheel composites in the same
+- Do not mix inconsistent original and edited car images in the same
   multi-image prompt unless the mismatch is explicitly part of the test.
 
 ## Pilot acceptance criteria
@@ -78,12 +79,12 @@ Use the same route for every Marble world:
 6. Record a separate free exploration clip only for presentation visuals.
 
 ## File layout
-- `inputs/dw_ai_2d/`: selected DW AI input images
+- `inputs/car_2d/`: selected car reference images
 - `recordings/`: Marble walkthrough videos
 - `results/`: metrics and annotation tables
 
 ## Immediate run checklist
-1. Put 4 selected DW AI images into `inputs/dw_ai_2d/`.
+1. Put 4 selected car reference images into `inputs/car_2d/`.
 2. Open Marble on desktop.
 3. For each image, create a single-image world with the prompt above.
 4. Name worlds `car_01` to `car_04`.
@@ -100,7 +101,7 @@ cp .env.example .env
 # WORLDLABS_API_KEY=...
 
 python3 scripts/marble_generate_world.py \
-  inputs/dw_ai_2d/car_01.jpg \
+  inputs/car_2d/car_01.jpg \
   --display-name car_01_marble_pilot \
   --model marble-1.1 \
   --prompt-file prompts/marble_outdoor_forecourt.txt

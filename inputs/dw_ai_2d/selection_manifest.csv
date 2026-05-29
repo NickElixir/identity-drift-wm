@@ -1,5 +1,0 @@
-run_id,selected_file,source_file,source_group,why_selected,notes
-car_01,inputs/dw_ai_2d/car_01.png,/Users/nikolai/Documents/Dream Wheel AI/images/Ivan's Dataset/cars/RESULTADOS/reve-v1.1 C5 R3.png,Ivan RESULTADOS,front three-quarter view with clear body and wheel identity,front plate blurred in selected copy
-car_02,inputs/dw_ai_2d/car_02.png,/Users/nikolai/Documents/Dream Wheel AI/images/Ivan's Dataset/cars/RESULTADOS/reve-v1.1 C3 R3.png,Ivan RESULTADOS,side view with both wheels visible and useful dirt/body identity cues,
-car_03,inputs/dw_ai_2d/car_03.png,/Users/nikolai/Documents/Dream Wheel AI/images/Ivan's Dataset/cars/RESULTADOS/reve-v1.1 C1 R3.png,Ivan RESULTADOS,side view with distinct wagon silhouette and black wheels,
-car_04,inputs/dw_ai_2d/car_04.png,/Users/nikolai/Documents/Dream Wheel AI/images/Ivan's Dataset/cars/RESULTADOS/reve-v1.1 C2 R3.png,Ivan RESULTADOS,large SUV side view with strong wheel visibility,

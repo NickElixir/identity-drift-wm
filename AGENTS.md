@@ -3,7 +3,7 @@
 ## Project
 
 This repo supports a short research pilot on identity drift in generative world
-models. The empirical track uses DW AI car wheel-composite images as inputs to
+models. The empirical track uses selected 2D car reference images as inputs to
 World Labs Marble, then evaluates whether the generated navigable world
 preserves the car identity.
 
@@ -16,7 +16,7 @@ preserves the car identity.
 - If a generation command crashes after `worlds:generate`, assume the API
   operation may already exist and check World Labs Platform before retrying.
 - Do not overwrite selected input images without updating
-  `inputs/dw_ai_2d/selection_manifest.csv`.
+  `inputs/car_2d/selection_manifest.csv`.
 
 ## Commit Discipline
 

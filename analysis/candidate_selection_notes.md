@@ -1,7 +1,7 @@
 # Marble Input Selection Notes
 
 ## Selection criteria
-- Use DW AI/Reve/Gemini-style generated wheel composites when available, not raw
+- Use selected edited/reference car images when available, not raw
   car photos, because Marble should test the downstream consumer visualization
   condition.
 - Prefer full-car images with the target car large in frame.

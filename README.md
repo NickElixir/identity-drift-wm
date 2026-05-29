@@ -4,23 +4,23 @@ Identity Drift in Generative World Models: From AV Simulation to Virtual
 Showrooms.
 
 This repository contains the Marble pilot pipeline for testing whether a
-generative world model preserves the visual identity of a car after a DW AI
-wheel-composite image is converted into a navigable 3D world.
+generative world model preserves the visual identity of a car after a selected
+2D car reference image is converted into a navigable 3D world.
 
 ## Current Pilot
 
 - Model: `marble-1.1`
-- Input mode: single DW AI/Reve-style image composite
+- Input mode: single selected 2D car reference image
 - World type: simple outdoor dealership forecourt
 - First generated world:
   <https://marble.worldlabs.ai/world/5519284a-551c-4dbb-a055-c7944c669109>
-- Pilot inputs: `inputs/dw_ai_2d/car_01.png` to `car_04.png`
+- Pilot inputs: `inputs/car_2d/car_01.png` to `car_04.png`
 - Prompt: `prompts/marble_outdoor_forecourt.txt`
 
 ## Repository Layout
 
 - `PROJECT_CONTEXT.md`: research context and experiment design.
-- `inputs/dw_ai_2d/`: selected Marble input images.
+- `inputs/car_2d/`: selected Marble input images.
 - `prompts/`: fixed prompts used for Marble generation.
 - `protocols/`: run plans and quality-check procedures.
 - `results/`: run tables and annotation templates.
@@ -50,7 +50,7 @@ Use this only when you intentionally want to spend World Labs credits:
 
 ```bash
 python3 scripts/marble_generate_world.py \
-  inputs/dw_ai_2d/car_01.png \
+  inputs/car_2d/car_01.png \
   --display-name car_01_marble_pilot \
   --model marble-1.1 \
   --prompt-file prompts/marble_outdoor_forecourt.txt
